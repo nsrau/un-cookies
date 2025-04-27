@@ -21,12 +21,14 @@ Rules can be defined using JSON schemas in two ways:
 [
   {
     "domain": "mydomain.com",
-    "action": "click",
-    "target": "[data-role='b_decline']",
-    "onSuccess": {
-      "action": "remove",
-      "target": "#cl-consent"
-    }
+    "actions": [{
+        "action": "click",
+        "target": "[data-role='b_decline']",
+        "onSuccess": {
+            "action": "remove",
+            "target": "#cl-consent"
+        }
+    }]
   }
 ]
 ```
