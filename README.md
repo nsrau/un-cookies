@@ -20,6 +20,7 @@ Rules can be defined using JSON schemas in two ways:
 ```json
 [
   {
+    "domain": "mydomain.com",
     "action": "click",
     "target": "[data-role='b_decline']",
     "onSuccess": {
