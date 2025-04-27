@@ -1,0 +1,176 @@
+[
+    {
+        "domain": "tg24.sky.it",
+        "actions": [
+            {
+                "action": "remove",
+                "target": "[id^='sp_message_container']"
+            },
+            {
+                "action": "style",
+                "target": ".sp-message-open body",
+                "styles": {
+                    "overflow": "auto",
+                    "position": "relative"
+                }
+            }
+        ]
+    },
+    {
+        "domain": "corriere.it",
+        "actions": [
+            {
+                "action": "click",
+                "target": "#privacy-cp-wall-reject-and-subscribe"
+            }
+        ]
+    },
+    {
+        "domain": "ansa.it",
+        "actions": [
+            {
+                "action": "click",
+                "target": ".iubenda-cs-close-btn"
+            },
+            {
+                "action": "remove",
+                "target": ".prompt-to-accept"
+            },
+            {
+                "action": "addGlobalStyle",
+                "target": ".show-prompt-to-accept",
+                "styles": {
+                    "overflow": "auto"
+                }
+            },
+            {
+                "action": "hide",
+                "target": ".prompt-to-accept"
+            },
+            {
+                "action": "clear-cookies",
+                "target": "*"
+            }
+        ]
+    },
+    {
+        "domain": "ilfattoquotidiano.it",
+        "actions": [
+            {
+                "action": "click",
+                "target": "[data-role='b_decline']",
+                "onSuccess": {
+                    "action": "remove",
+                    "target": "#fov-noconsent",
+                    "message": "Decline button clicked and banner removed"
+                },
+                "onError": {
+                    "action": "log",
+                    "message": "Failed to click decline button"
+                }
+            },
+            {
+                "action": "remove",
+                "target": "#fov-noconsent"
+            },
+            {
+                "action": "clear-cookies",
+                "target": "*"
+            }
+        ]
+    },
+    {
+        "domain": "repubblica.it",
+        "actions": [
+            {
+                "action": "click",
+                "target": "[data-action='forward']",
+                "onSuccess": {
+                    "message": "Decline button clicked and banner removed"
+                }
+            },
+            {
+                "action": "addGlobalStyle",
+                "target": ".cookiewall",
+                "styles": {
+                    "display": "none !important",
+                    "visibility": "hidden !important"
+                }
+            },
+            {
+                "action": "hide",
+                "target": ".is-cookiewall-open .cookiewall",
+                "delay": 500
+            },
+            {
+                "action": "remove",
+                "target": ".cookiewall"
+            },
+            {
+                "action": "clear-cookies",
+                "target": "*"
+            }
+        ]
+    },
+    {
+        "domain": "*",
+        "actions": [
+            {
+                "action": "remove",
+                "target": "#cookie-banner"
+            },
+            {
+                "action": "remove",
+                "target": "#cookie-notice"
+            },
+            {
+                "action": "remove",
+                "target": ".cookie-banner"
+            },
+            {
+                "action": "remove",
+                "target": ".cookie-consent"
+            },
+            {
+                "action": "remove",
+                "target": ".cookie-notice"
+            },
+            {
+                "action": "remove",
+                "target": "#cookiebanner"
+            },
+            {
+                "action": "remove",
+                "target": ".cookiebanner"
+            },
+            {
+                "action": "remove",
+                "target": "#gdpr-banner"
+            },
+            {
+                "action": "remove",
+                "target": ".gdpr-banner"
+            },
+            {
+                "action": "remove",
+                "target": "#CybotCookiebotDialog"
+            },
+            {
+                "action": "remove",
+                "target": "#onetrust-consent-sdk"
+            },
+            {
+                "action": "remove",
+                "target": "#cookieConsentContainer"
+            },
+            {
+                "action": "remove",
+                "target": ".js-consent-banner"
+            },
+            {
+                "action": "remove",
+                "target": "#iubenda-cs-banner"
+            }
+        ]
+    }
+]

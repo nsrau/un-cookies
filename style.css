@@ -1,0 +1,507 @@
+:root {
+  --primary-color: #4285f4;
+  --primary-hover: #3b78e7;
+  --secondary-color: #0f9d58;
+  --danger-color: #db4437;
+  --gray-light: #f5f5f5;
+  --border-color: #ddd;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  width: 380px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.header img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.editor-container {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.CodeMirror {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  height: 150px;
+  min-height: 100px;
+  max-height: 400px;
+}
+
+.resize-handle {
+  height: 10px;
+  background-color: var(--gray-light);
+  cursor: ns-resize;
+  text-align: center;
+  line-height: 10px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 2;
+  border-radius: 0 0 4px 4px;
+}
+
+.resize-handle::after {
+  content: "≡";
+  color: #999;
+  font-size: 12px;
+}
+
+.helper-text {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 16px 0;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button#add,
+button#update {
+  background-color: var(--primary-color);
+  color: white;
+  flex-grow: 1;
+}
+
+button#add:hover,
+button#update:hover {
+  background-color: var(--primary-hover);
+}
+
+button#format {
+  background-color: var(--secondary-color);
+  color: white;
+  margin-right: 8px;
+}
+
+button#format:hover {
+  background-color: #0b8c4d;
+}
+
+button#cancel {
+  background-color: #9e9e9e;
+  color: white;
+  margin-left: 8px;
+}
+
+button#cancel:hover {
+  background-color: #8e8e8e;
+}
+
+#use-gist {
+  background-color: #24292e;
+  color: white;
+}
+
+#use-gist:hover {
+  background-color: #2f363d;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 20px 0;
+  background: linear-gradient(to right, transparent, #ddd, transparent);
+}
+
+h3 {
+  margin: 0 0 12px 0;
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 8px 0;
+  z-index: 5;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+li {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #f1f3f4;
+}
+
+li.editing {
+  background-color: #e8f0fe;
+  border-left-color: var(--primary-color);
+}
+
+li .domain-text {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li .actions {
+  display: flex;
+  gap: 4px;
+}
+
+li button {
+  background: none;
+  color: #5f6368;
+  padding: 4px 8px;
+  font-size: 12px;
+  margin: 0;
+}
+
+li button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+li button.edit {
+  color: var(--primary-color);
+}
+
+li button.delete {
+  color: var(--danger-color);
+}
+
+.empty-state {
+  text-align: center;
+  color: #80868b;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+.debug-section {
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.toggle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.toggle-label {
+  font-weight: 500;
+}
+
+.debug-info {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0b8c4d;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* Visual indicator that debug mode is on */
+.debug-enabled .header::after {
+  content: "Debug ON";
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #0b8c4d;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.status {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 80%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  display: none;
+}
+
+.status.success {
+  background-color: #e6f4ea;
+  color: #0f9d58;
+  display: block;
+  opacity: 1;
+}
+
+.status.error {
+  background-color: #fce8e6;
+  color: #d93025;
+  display: block;
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.status.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+.counter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.counter-section strong {
+  color: #0b8c4d;
+  font-size: 16px;
+}
+
+#reset-cache {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+}
+
+#reset-cache:hover {
+  background-color: #e0e0e0;
+}
+
+#reset-cache:active {
+  background-color: #d0d0d0;
+}
+
+/* Transition effects */
+input.clearing,
+textarea.clearing,
+.CodeMirror.clearing {
+  transition: background-color 0.3s ease;
+  background-color: rgba(11, 140, 77, 0.1);
+}
+
+.handler-code {
+  font-family: monospace;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  margin-top: 4px;
+  color: #6a737d;
+}
+
+/* JSON editor highlighting */
+.CodeMirror-line .cm-string {
+  color: #a6e22e;
+}
+
+.CodeMirror-line .cm-property {
+  color: #f8f8f2;
+}
+
+.CodeMirror-line .cm-punctuation {
+  color: #f8f8f2;
+}
+
+.handler-info {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.handler-domain {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.handler-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+/* Stats Section Styles */
+.stats-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.counter-wrapper,
+.debug-wrapper {
+  flex: 1;
+}
+
+.debug-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.debug-info span {
+  font-size: 14px;
+  color: #555;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.debug-wrapper small {
+  color: #666;
+  font-size: 12px;
+  display: block;
+}
