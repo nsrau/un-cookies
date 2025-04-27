@@ -65,3 +65,133 @@ Available actions:
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
+
+## Action Executor Examples
+
+The following examples demonstrate various actions that can be executed using the action executor:
+
+## Basic Actions
+
+```json
+{
+  "action": "click",
+  "target": "#accept-button"
+}
+
+{
+  "action": "remove",
+  "target": "#cookie-banner"
+}
+
+{
+  "action": "hide",
+  "target": ".cookie-notice"
+}
+```
+
+## Style Actions
+
+```json
+{
+  "action": "style",
+  "target": "#consent-popup",
+  "property": "display",
+  "value": "none"
+}
+
+{
+  "action": "style",
+  "target": ".modal",
+  "styles": {
+    "opacity": "0",
+    "visibility": "hidden",
+    "display": "none"
+  }
+}
+```
+
+## Cookie Actions
+
+```json
+{
+  "action": "clear-cookies",
+  "target": "*"
+}
+
+{
+  "action": "delete-cookies",
+  "target": "cookieConsent"
+}
+```
+
+## Global Style Actions
+
+```json
+{
+  "action": "addGlobalStyle",
+  "target": ".cookie-banner",
+  "styles": {
+    "display": "none",
+    "visibility": "hidden"
+  }
+}
+
+{
+  "action": "removeGlobalStyle",
+  "target": ".cookie-banner"
+}
+```
+
+## Actions with Delay and Chaining
+
+```json
+{
+  "action": "click",
+  "target": "#accept-cookies",
+  "delay": 1000,
+  "onSuccess": {
+    "action": "reload"
+  },
+  "onError": {
+    "action": "hide",
+    "target": "#cookie-modal"
+  }
+}
+```
+
+## Multiple Actions for a Domain
+
+```json
+{
+  "domain": "example.com",
+  "actions": [
+    {
+      "action": "remove",
+      "target": "#cookie-notice"
+    },
+    {
+      "action": "clear-cookies",
+      "target": "*"
+    }
+  ]
+}
+```
+
+## CSS Class Actions
+
+```json
+{
+  "action": "remove-class",
+  "target": "body",
+  "className": "cookie-banner-visible"
+}
+```
+
+## Logging Actions
+
+```json
+{
+  "action": "log",
+  "message": "Attempting to remove cookie banner"
+}
+````
