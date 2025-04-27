@@ -2,6 +2,8 @@
 
 A Chrome extension for managing cookie consent banners and notifications using configurable JSON schemas.
 
+![Extension Popup](src/screen/popup.png)
+
 ## Features
 
 - Remove cookie banners and consent popups automatically
