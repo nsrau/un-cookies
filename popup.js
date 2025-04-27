@@ -231,13 +231,12 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.storage.sync.set({ debugMode: debugToggle.checked });
   });
 
-  // Reset counter
+  // Reset all settings in sync storage
   resetCache.addEventListener("click", function () {
-    chrome.runtime.sendMessage({
-      action: "resetCache",
-      count: 0,
+    chrome.storage.sync.clear(function () {
+      showStatus("Settings reset", "success");
+      init({ list, handlers, emptyList });
     });
-    showStatus("Counter reset", "success");
   });
 
   // Format button
