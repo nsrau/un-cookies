@@ -51,21 +51,6 @@ Available actions:
 - `delete-cookies`: Delete cookies
 - `remove-class`: Remove CSS class
 
-## Development
-
-1. Clone the repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode"
-4. Click "Load unpacked" and select the extension directory
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
 ## Action Executor Examples
 
 The following examples demonstrate various actions that can be executed using the action executor:
@@ -195,3 +180,18 @@ The following examples demonstrate various actions that can be executed using th
   "message": "Attempting to remove cookie banner"
 }
 ````
+
+## Development
+
+1. Clone the repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the extension directory
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
